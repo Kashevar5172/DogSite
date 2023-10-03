@@ -13,7 +13,6 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap"
           rel="stylesheet"
         />
-        <button>123</button>
       </Head>
       <Header />
       <Main />
