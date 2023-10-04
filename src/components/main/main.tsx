@@ -4,7 +4,6 @@ import { ContainerName } from "./containerName";
 import { ImageConteiner } from "./imageConteiner";
 import { About } from "./about";
 
-
 export const StyledMain = styled.div`
   display: flex;
 
@@ -23,9 +22,8 @@ const StyledImage = styled.img`
 `;
 
 const StyledDog = styled.div`
-  margin: 40px auto auto; //2-e auto за расстояние
+  margin: 40px auto auto;
   max-width: 100%;
-  /* margin-right: auto; */
 `;
 const StyledTextInBox = styled.div`
   font-family: "Krona One", sans-serif;
@@ -51,13 +49,18 @@ const StyledImageContainer = styled.div`
 
 //#d9d9d9
 
-
-
 const Dog = styled.div`
-width: 400px;
-height: 400px;
-background-color: #bdbbbb20;
-`
+  width: 400px;
+  height: 400px;
+  background-color: #bdbbbb20;
+`;
+
+const FFWrapper = styled.div`
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
 
 interface DogProps {
   text?: string;
@@ -100,10 +103,14 @@ export const Main = () => {
   return (
     <StyledMain>
       <ContainerName />
-      <ImageConteiner/>
+      <ImageConteiner />
       <About />
       <StyledHeaderWrapper>Блоки собак</StyledHeaderWrapper>
+      <FFWrapper>
       <FF link="" />
+      <FF link="" />
+      <FF link="" />  
+      </FFWrapper>
       {/* <FF 
         text="Померанский шпиц (Медвежьего типа)"
         imageSrc="/images/terier/Terier.png"

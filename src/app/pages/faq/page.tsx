@@ -44,10 +44,8 @@ const Test = () => {
     <div>
       <Header />
       <StyledMain>
-      <div>
         {/* <Items   posts={post} /> */}
         U hu
-      </div>
       </StyledMain>
     </div>
   );
