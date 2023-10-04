@@ -25,7 +25,7 @@ const ImageContainer = styled.div`
 const StyledImage = styled.img<{ background?: string }>`
   width: 100%;
   height: 100%;
-  background: ${(props) => `url(${props.background})`};
+  background: ${(props) => `url(${props.background})`}; //ERROR IN CONSOLE
   background-size: cover;
   background-position: center;
   cursor: pointer;

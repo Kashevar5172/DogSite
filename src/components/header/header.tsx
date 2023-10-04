@@ -1,18 +1,12 @@
 "use client";
 
-import { ChangeEvent, useContext, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { styled } from "styled-components";
 
 import Link from "next/link";
 import { Logo } from "./logo";
 import { Search, StyledList, StyledSearch, TextInList } from "./search";
 import { date } from "./search/searchMass";
-
-
-
-
-
-
 
 export const StyledTextSecond = styled.div`
   font-family: sans-serif;
@@ -42,8 +36,6 @@ export const FAQ = styled.div`
   }
 `;
 
-
-
 // export const StyledLoupe = styled(Loupe)`
 //   width: 40px;
 //   height: auto;
@@ -66,7 +58,7 @@ const StyledHeaderWrapper = styled.div`
 
   gap: 10px;
   padding: 5px;
-  margin: 10px; 
+  margin: 10px;
 `;
 
 const WrapperText = styled.div`
@@ -74,7 +66,7 @@ const WrapperText = styled.div`
   align-items: center;
   justify-content: center;
   gap: 60px;
-`
+`;
 
 export const Header = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -93,18 +85,15 @@ export const Header = () => {
   return (
     <StyledHeader>
       <StyledHeaderWrapper>
-        <Logo/>
+        <Logo />
         <StyledSearch>
-          <div />
-          {/* <StyledLoupe />
-        <Line /> */}
           <Search
             type="text"
             value={searchValue}
             onChange={handleSearchChange}
             placeholder="Введите породу собаки..."
           />
-          <StyledList>
+          <StyledList> 
             {showList &&
               filteredDate.map((dogInfo, index) => (
                 <div key={index}>
@@ -116,12 +105,12 @@ export const Header = () => {
           </StyledList>
         </StyledSearch>
         <WrapperText>
-        <Link href="/pages/breeds" legacyBehavior>
-          <StyledTextSecond>Породы</StyledTextSecond>
-        </Link>
-        <Link href="/pages/faq" legacyBehavior>
-          <FAQ>FAQ</FAQ>
-        </Link>
+          <Link href="/pages/breeds" legacyBehavior>
+            <StyledTextSecond>Породы</StyledTextSecond>
+          </Link>
+          <Link href="/pages/faq" legacyBehavior>
+            <FAQ>FAQ</FAQ>
+          </Link>
         </WrapperText>
       </StyledHeaderWrapper>
     </StyledHeader>
