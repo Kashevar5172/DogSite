@@ -8,6 +8,7 @@ import { LogoImg } from "../../../../public/images/logo";
 export const StyledLogo = styled(LogoImg)`
   height: 40px;
   width: 40px;
+  
   &:hover,
   &:focus {
     path {

@@ -3,11 +3,12 @@ import Link from "next/link";
 import { ContainerName } from "./containerName";
 import { ImageConteiner } from "./imageConteiner";
 import { About } from "./about";
+import { FC, useEffect, useRef, useState } from "react";
+import { dogData } from "./mass";
 
 export const StyledMain = styled.div`
   display: flex;
-
-  background-color: #ffffff;
+  
   flex-wrap: wrap;
 
   justify-content: center;
@@ -25,6 +26,7 @@ const StyledDog = styled.div`
   margin: 40px auto auto;
   max-width: 100%;
 `;
+
 const StyledTextInBox = styled.div`
   font-family: "Krona One", sans-serif;
   color: #000000;
@@ -42,12 +44,10 @@ const StyledLink = styled.div`
 `;
 
 const StyledImageContainer = styled.div`
-  width: 400px;
-  height: 400px;
+  width: auto;
   overflow: hidden;
 `;
 
-//#d9d9d9
 
 const Dog = styled.div`
   width: 400px;
@@ -56,10 +56,8 @@ const Dog = styled.div`
 `;
 
 const FFWrapper = styled.div`
-  width: auto;
-  height: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 interface DogProps {
@@ -68,7 +66,7 @@ interface DogProps {
   link?: string;
 }
 
-const FF: React.FC<DogProps> = ({ text, imageSrc, link }) => {
+const FF:FC<DogProps> = ({ text, imageSrc, link }) => {
   return (
     <StyledDog>
       <Dog>
@@ -99,7 +97,47 @@ const StyledHeaderWrapper = styled.div`
   color: white;
 `;
 
-export const Main = () => {
+export const Main:FC = () => {
+  const [containers, setContainers] = useState<DogProps[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const itemsPerPage: number = 9;
+  const isLoading = useRef<boolean>(false);
+
+  useEffect(() => {
+    // Функция для загрузки контейнеров
+    const loadMoreContainers = () => {
+      if (isLoading.current) return;
+
+      isLoading.current = true;
+
+      // Моделируем загрузку данных из массива данных
+      const startIndex = (page - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const newContainers = dogData.slice(startIndex, endIndex);
+
+      setContainers((prevContainers) => [...prevContainers, ...newContainers]);
+      setPage((prevPage) => prevPage + 1);
+
+      isLoading.current = false;
+    };
+
+    const handleScroll = () => {
+      const windowHeight: number = window.innerHeight;
+      const documentHeight: number = document.documentElement.scrollHeight;
+      const scrollTop: number = window.scrollY  || document.documentElement.scrollTop;
+
+      if (windowHeight + scrollTop >= documentHeight - 100) {
+        loadMoreContainers();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [page]);
+  
   return (
     <StyledMain>
       <ContainerName />
@@ -107,19 +145,17 @@ export const Main = () => {
       <About />
       <StyledHeaderWrapper>Блоки собак</StyledHeaderWrapper>
       <FFWrapper>
-      <FF link="" />
-      <FF link="" />
-      <FF link="" />  
+      {containers.map((container, index) => (
+          <FF
+            key={index}
+            text={container.text}
+            imageSrc={container.imageSrc}
+            link={container.link}
+          />
+        ))} 
+        {isLoading.current}
+        {/*&& <p>Loading...</p>*/}
       </FFWrapper>
-      {/* <FF 
-        text="Померанский шпиц (Медвежьего типа)"
-        imageSrc="/images/terier/Terier.png"
-        link="/pages/Terrier"
-        />
-      <FF imageSrc="/images/spic.jpg"
-      text="Авот"
-      />
-      <FF/>  */}
     </StyledMain>
   );
 };

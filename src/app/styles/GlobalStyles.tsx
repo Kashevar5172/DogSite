@@ -3,9 +3,19 @@ import { createGlobalStyle } from "styled-components";
 export const themeName = {
   light: {
     backgroundColor: "#5c5a5a",
+    color: "#ffffff",
+    header: {
+      backgroundColor: "#f50000",
+      color: "#ffffff",
+    },
   },
   dark: {
     backgroundColor: "#000000",
+    color: "#ffffff",
+    header: {
+      backgroundColor: "#0055ff",
+      color: "#ffffff",
+    },
   },
 };
 

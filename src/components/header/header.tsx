@@ -7,10 +7,11 @@ import Link from "next/link";
 import { Logo } from "./logo";
 import { Search, StyledList, StyledSearch, TextInList } from "./search";
 import { date } from "./search/searchMass";
+import { themeName } from "@/app/styles/GlobalStyles";
 
 export const StyledTextSecond = styled.div`
   font-family: sans-serif;
-  color: white;
+
   font-size: 25px;
 
   text-shadow: black 0 3px;
@@ -25,7 +26,7 @@ export const StyledTextSecond = styled.div`
 export const FAQ = styled.div`
   font-family: "Krona One", sans-serif;
   text-decoration: none;
-  color: #ffffff;
+
   font-size: 25px;
 
   text-shadow: black 0 3px;
@@ -55,7 +56,6 @@ const StyledHeaderWrapper = styled.div`
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-
   gap: 10px;
   padding: 5px;
   margin: 10px;
@@ -83,7 +83,7 @@ export const Header = () => {
   );
 
   return (
-    <StyledHeader>
+    <StyledHeader theme={themeName.light.header}>
       <StyledHeaderWrapper>
         <Logo />
         <StyledSearch>

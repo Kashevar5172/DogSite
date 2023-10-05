@@ -1,5 +1,5 @@
-import { useState, createContext } from 'react';
-import { GlobalStyles, themeName } from '../GlobalStyles';
+import { useState, createContext } from "react";
+import { GlobalStyles, themeName } from "../GlobalStyles";
 
 interface ThemeContextInterface {
   themeMode: { [key: string]: string };
@@ -16,10 +16,13 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
+  let savedThemeName;
 
-  const savedThemeName = localStorage.getItem(
-    'themeName'
-  ) as keyof typeof themeName;
+  if (typeof window !== "undefined") {
+    savedThemeName = window.localStorage.getItem(
+      "themeName"
+    ) as keyof typeof themeName;
+  }
 
   const initialThemeMode =
     savedThemeName && themeName[savedThemeName]
@@ -33,8 +36,8 @@ export default function ThemeProvider({
       themeMode === themeName.light ? themeName.dark : themeName.light;
     setthemeMode(newThemeMode);
     localStorage.setItem(
-      'themeName',
-      newThemeMode === themeName.light ? 'light' : 'dark'
+      "themeName",
+      newThemeMode === themeName.light ? "light" : "dark"
     );
   };
 
