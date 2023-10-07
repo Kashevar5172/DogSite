@@ -9,14 +9,13 @@ const ContainerWrapper = styled.div`
 const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
   width: 100%;
   height: 400px;
-  background-color: #a3a3a3;
   margin: 100px;
 `;
 
-const SiteName = styled.div`
+const StyledHeadline = styled.div`
   font-family: "Krona One", sans-serif;
   font-weight: bold;
   font-size: 240px;
@@ -26,11 +25,11 @@ const SiteName = styled.div`
   text-shadow: #00000030 -20px 0px 0px;
 `;
 
-export const ContainerName = () => {
+export const Headline = () => {
   return (
     <ContainerWrapper>
       <Container>
-        <SiteName>DOG SITE</SiteName>
+        <StyledHeadline>DOG SITE</StyledHeadline>
       </Container>
     </ContainerWrapper>
   );

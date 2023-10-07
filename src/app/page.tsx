@@ -1,8 +1,12 @@
-"use client";
+'use client';
 
-import { Header } from "@/components/header/header";
-import { Main } from "@/components/main/main";
-import Head from "next/head";
+import { Header } from '@/components/header/header';
+import { About } from '@/modules/sections/about';
+import { DogsSection } from '@/modules/sections/dogs';
+
+import { ImageConteiner } from '@/modules/sections/imageConteiner';
+import { Main } from '@/modules/sections/welcome';
+import Head from 'next/head';
 
 export default function Home() {
   return (
@@ -16,6 +20,9 @@ export default function Home() {
       </Head>
       <Header />
       <Main />
+      <ImageConteiner />
+      <About />
+      <DogsSection />
     </div>
   );
 }

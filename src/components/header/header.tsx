@@ -1,17 +1,16 @@
-"use client";
+'use client';
 
-import { ChangeEvent, useState } from "react";
-import { styled } from "styled-components";
+import { ChangeEvent, useState } from 'react';
+import { styled } from 'styled-components';
 
-import Link from "next/link";
-import { Logo } from "./logo";
-import { Search, StyledList, StyledSearch, TextInList } from "./search";
-import { date } from "./search/searchMass";
-
+import { Logo } from './logo';
+import { Search, StyledList, StyledSearch, TextInList } from './search';
+import { date } from './search/searchMass';
+import Link from 'next/link';
 
 export const StyledTextSecond = styled.div`
   font-family: sans-serif;
-  font-size: 25px;
+  font-size: 26px;
 
   text-shadow: black 0 3px;
   font-weight: bold;
@@ -23,10 +22,10 @@ export const StyledTextSecond = styled.div`
 `;
 
 export const FAQ = styled.div`
-  font-family: "Krona One", sans-serif;
+  font-family: 'Krona One', sans-serif;
   text-decoration: none;
 
-  font-size: 25px;
+  font-size: 26px;
 
   text-shadow: black 0 3px;
   &:hover {
@@ -43,42 +42,38 @@ export const FAQ = styled.div`
 //   /* margin: -4px 4px 4px 4px; */
 // `;
 
-
-
 const StyledHeader = styled.header`
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  /* background-color: #ffffff30; */
-`;
-
-const StyledHeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 5px;
-  margin: 10px;
+
+  padding: 24px 0px;
+
+  position: fixed;
+
+  display: flex;
   
+  justify-content: space-around;
+  align-items: center;
+
+  z-index: 2;
+
+  background-color: #ffffff30;
 `;
 
 const WrapperText = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;
+  gap: 30px;
 `;
 
 export const Header = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const [showList, setShowList] = useState(false);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearchValue(value);
-    setShowList(value.trim() !== "");
+    setShowList(value.trim() !== '');
   };
 
   const filteredDate = date.filter((item) =>
@@ -87,35 +82,33 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <StyledHeaderWrapper>
-        <Logo />
-        <StyledSearch>
-          <Search
-            type="text"
-            value={searchValue}
-            onChange={handleSearchChange}
-            placeholder="Введите породу собаки..."
-          />
-          <StyledList> 
-            {showList &&
-              filteredDate.map((dogInfo, index) => (
-                <div key={index}>
-                  <Link href={dogInfo.Link_name} legacyBehavior>
-                    <TextInList>{dogInfo.Dog_name}</TextInList>
-                  </Link>
-                </div>
-              ))}
-          </StyledList>
-        </StyledSearch>
-        <WrapperText>
-          <Link href="/pages/breeds" legacyBehavior>
-            <StyledTextSecond>Породы</StyledTextSecond>
-          </Link>
-          <Link href="/pages/faq" legacyBehavior>
-            <FAQ>FAQ</FAQ>
-          </Link>
-        </WrapperText>
-      </StyledHeaderWrapper>
+      <Logo />
+      <StyledSearch>
+        <Search
+          type="text"
+          value={searchValue}
+          onChange={handleSearchChange}
+          placeholder="Введите породу собаки..."
+        />
+        <StyledList>
+          {showList &&
+            filteredDate.map((dogInfo, index) => (
+              <div key={index}>
+                <Link href={dogInfo.Link_name} legacyBehavior>
+                  <TextInList>{dogInfo.Dog_name}</TextInList>
+                </Link>
+              </div>
+            ))}
+        </StyledList>
+      </StyledSearch>
+      <WrapperText>
+        <Link href="/pages/breeds" legacyBehavior>
+          <StyledTextSecond>Породы</StyledTextSecond>
+        </Link>
+        <Link href="/pages/faq" legacyBehavior>
+          <FAQ>FAQ</FAQ>
+        </Link>
+      </WrapperText>
     </StyledHeader>
   );
 };
