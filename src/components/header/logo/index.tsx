@@ -1,9 +1,8 @@
 "use client"
 import styled from "styled-components";
-import { ThemeContext } from "@/app/styles/theme/ThemeContext";
 import { FC, useContext } from "react";
 import Link from "next/link";
-import { LogoImg } from "../../../../public/images/logo";
+import { LogoImg } from "./image";
 
 export const StyledLogo = styled(LogoImg)`
   height: 40px;
@@ -38,10 +37,9 @@ const StyledText = styled.span`
 `;
 
 export const Logo: FC = () => {
-  const { changeTheme } = useContext(ThemeContext);
   return (
     <WrapperLogo>
-      <StyledText onClick={changeTheme}>DS</StyledText>
+      <StyledText>DS</StyledText>
       <Link href="/">
         <StyledLogo />
       </Link>

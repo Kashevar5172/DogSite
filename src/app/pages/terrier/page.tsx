@@ -14,6 +14,10 @@ export default function Terier() {
       <Header />
       <StyledPage>
         <DogName>Йоркширский терьер</DogName>
+        {/* <DogImage
+          imageSrc="/images/terier/Terier.png"
+          imageFull="/images/terier/Terier.png"
+        /> */}
         <DogImage
           imageSrc="/images/terier/Terier.png"
           imageFull="/images/terier/Terier.png"

@@ -6,13 +6,16 @@ import { About } from "./about";
 import { FC, useEffect, useRef, useState } from "react";
 import { dogData } from "./mass";
 
-export const StyledMain = styled.div`
+///images/main/background.jpg
+
+export const StyledMain = styled.section`
   display: flex;
-  
+
   flex-wrap: wrap;
 
   justify-content: center;
   flex-direction: column;
+
 `;
 
 const StyledImage = styled.img`
@@ -48,7 +51,6 @@ const StyledImageContainer = styled.div`
   overflow: hidden;
 `;
 
-
 const Dog = styled.div`
   width: 400px;
   height: 400px;
@@ -66,7 +68,7 @@ interface DogProps {
   link?: string;
 }
 
-const FF:FC<DogProps> = ({ text, imageSrc, link }) => {
+const FF: FC<DogProps> = ({ text, imageSrc, link }) => {
   return (
     <StyledDog>
       <Dog>
@@ -84,6 +86,7 @@ const FF:FC<DogProps> = ({ text, imageSrc, link }) => {
   );
 };
 
+
 const StyledHeaderWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -97,7 +100,16 @@ const StyledHeaderWrapper = styled.div`
   color: white;
 `;
 
-export const Main:FC = () => {
+const ImageBackgroundd = styled.img`
+  width: 100%;
+  height: 100%;
+  background-position: cover; // Центрируем изображение по горизонтали и вертикали
+  position: relative; // Устанавливаем позицию в relative, чтобы дочерние элементы могли быть размещены поверх фона
+  z-index: 1; // Устанавливаем z-index, чтобы фон был "под" другими элементами
+`;
+
+
+export const Main: FC = () => {
   const [containers, setContainers] = useState<DogProps[]>([]);
   const [page, setPage] = useState<number>(1);
   const itemsPerPage: number = 9;
@@ -124,35 +136,36 @@ export const Main:FC = () => {
     const handleScroll = () => {
       const windowHeight: number = window.innerHeight;
       const documentHeight: number = document.documentElement.scrollHeight;
-      const scrollTop: number = window.scrollY  || document.documentElement.scrollTop;
+      const scrollTop: number =
+        window.scrollY || document.documentElement.scrollTop;
 
       if (windowHeight + scrollTop >= documentHeight - 100) {
         loadMoreContainers();
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [page]);
-  
+
   return (
     <StyledMain>
       <ContainerName />
       <ImageConteiner />
       <About />
-      <StyledHeaderWrapper>Блоки собак</StyledHeaderWrapper>
+      <StyledHeaderWrapper>Собаки</StyledHeaderWrapper>
       <FFWrapper>
-      {containers.map((container, index) => (
+        {containers.map((container, index) => (
           <FF
             key={index}
             text={container.text}
             imageSrc={container.imageSrc}
             link={container.link}
           />
-        ))} 
+        ))}
         {isLoading.current}
         {/*&& <p>Loading...</p>*/}
       </FFWrapper>

@@ -7,11 +7,10 @@ import Link from "next/link";
 import { Logo } from "./logo";
 import { Search, StyledList, StyledSearch, TextInList } from "./search";
 import { date } from "./search/searchMass";
-import { themeName } from "@/app/styles/GlobalStyles";
+
 
 export const StyledTextSecond = styled.div`
   font-family: sans-serif;
-
   font-size: 25px;
 
   text-shadow: black 0 3px;
@@ -44,10 +43,13 @@ export const FAQ = styled.div`
 //   /* margin: -4px 4px 4px 4px; */
 // `;
 
+
+
 const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
   gap: 12px;
+  /* background-color: #ffffff30; */
 `;
 
 const StyledHeaderWrapper = styled.div`
@@ -59,6 +61,7 @@ const StyledHeaderWrapper = styled.div`
   gap: 10px;
   padding: 5px;
   margin: 10px;
+  
 `;
 
 const WrapperText = styled.div`
@@ -83,7 +86,7 @@ export const Header = () => {
   );
 
   return (
-    <StyledHeader theme={themeName.light.header}>
+    <StyledHeader>
       <StyledHeaderWrapper>
         <Logo />
         <StyledSearch>

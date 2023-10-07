@@ -73,19 +73,11 @@ export const ImageConteiner = () => {
   const images = [
     "/images/terier/Terier.png",
     "/images/spic.jpg",
-    // "/images/terier/Terier.png",
-    // "/images/terier/Terier.png",
-    // "/images/terier/Terier.png",
-    // "/images/terier/Terier.png",
   ];
 
   const imageTexts = [
     "Йоркширский терьер",
     "Померанский шпиц",
-    // "Название изображения 3",
-    // "Название изображения 4",
-    // "Название изображения 5",
-    // "Название изображения 6",
   ];
 
   return (

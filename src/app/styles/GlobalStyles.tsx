@@ -1,23 +1,36 @@
 import { createGlobalStyle } from "styled-components";
 
-export const themeName = {
-  light: {
-    backgroundColor: "#5c5a5a",
-    color: "#ffffff",
-    header: {
-      backgroundColor: "#f50000",
-      color: "#ffffff",
-    },
-  },
-  dark: {
-    backgroundColor: "#000000",
-    color: "#ffffff",
-    header: {
-      backgroundColor: "#0055ff",
-      color: "#ffffff",
-    },
-  },
+export const lightTheme = {
+  textColor: "#000000",
 };
+
+export const darkTheme = {
+  textColor: "#ffffff",
+};
+
+// light: {
+//   backgroundColor: "#ffffff",
+//   color: "#000000",
+//   header: {
+//     backgroundColor: "#5c5a5a",
+//     color: "#ffffff",
+//   },
+// },
+// dark: {
+//   backgroundColor: "#ffffff",
+//   color: "#000000",
+//   header: {
+//     backgroundColor: "#000000",
+//     color: "#ffffff",
+//     svg: {
+//       path: {
+//         stroke: "#ffffff",
+//         "stroke-width": "200px",
+//         "stroke-linecap": "butt",
+//       },
+//     },
+//   },
+// },
 
 export const GlobalStyles = createGlobalStyle`
   #__next {
@@ -38,14 +51,14 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     
   }
- ${(themeProps) => {
-   switch (themeProps.theme) {
-     case themeName.light:
-       return themeName.light;
-     default:
-       return themeName.dark;
-   }
- }};
+  ${(themeProps) => {
+    switch (themeProps.theme) {
+      case lightTheme:
+        return lightTheme;
+      default:
+        return darkTheme;
+    }
+  }};
  
  #root{
   height: 100%;

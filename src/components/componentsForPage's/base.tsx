@@ -142,12 +142,15 @@ export const RotateArrow = () => {
   );
 };
 
-const StyledImage = styled.img`
-  display: block;
-  border-radius: 50px;
+const BoxStyledImage = styled.div`
+ max-width: 1600px;
+ height: 550px;
+`
 
-  max-width: 100%;
-  max-height: 100%;
+const StyledImage = styled.img`
+  width: 100%;
+  border-radius: 50px;
+  height: 100%;
   object-fit: cover;
   aspect-ratio: 3 / 1;
 `;
@@ -199,7 +202,9 @@ export const DogImage: React.FC<ForDogImage> = ({ imageSrc, imageFull }) => {
 
   return (
     <div>
+      <BoxStyledImage>
       <StyledImage src={imageSrc} onClick={UserClick} />
+      </BoxStyledImage>
       {showfullImage && (
         <FullImageContainer>
           <StyledSvgStrelkaVlevo>
@@ -237,7 +242,6 @@ export const DogName = styled.div`
 
 export const StyledPage = styled.main`
   height: auto;
-  margin: 0px -0.5% 0px;
   flex-wrap: wrap;
   padding: 0px 48px;
 `;

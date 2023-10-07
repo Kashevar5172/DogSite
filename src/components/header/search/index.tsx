@@ -6,7 +6,8 @@ export const StyledSearch = styled.div`
   width: 50%;
   height: 40px;
   background-color: #ffffff;
-  border: 4px solid black;
+  border: 2px solid #545454;
+  border-radius: 100px;
 `;
 
 export const Search = styled.input`
@@ -17,6 +18,7 @@ export const Search = styled.input`
   padding: 10px;
   border: 1px solid #ffffff;
   outline: none;
+  border-radius: 100px;
   &:focus {
     border-color: #00900e; /* Цвет рамки при фокусе */
     box-shadow: 0 0 24px #00900ebd; /* Эффект подсветки при фокусе */
@@ -26,7 +28,8 @@ export const Search = styled.input`
 export const StyledList = styled.div`
   position: absolute;
   top: 100%;
-  width: 100%;
+  margin-left: 2%;
+  width: 96%;
   max-height: 200px; 
   overflow-y: auto; 
   background-color: #ffffff;
