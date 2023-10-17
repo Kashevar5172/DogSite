@@ -1,36 +1,37 @@
-'use client';
+"use client";
 
-import { ChangeEvent, useState } from 'react';
-import { styled } from 'styled-components';
+import { ChangeEvent, useState } from "react";
+import { styled } from "styled-components";
 
-import { Logo } from './logo';
-import { Search, StyledList, StyledSearch, TextInList } from './search';
-import { date } from './search/searchMass';
-import Link from 'next/link';
+import { Logo } from "./logo";
+import { Search, StyledList, StyledSearch, TextInList } from "./search";
+import Link from "next/link";
+import { dogData } from "@/modules/sections/dogs/items";
 
 export const StyledTextSecond = styled.div`
   font-family: sans-serif;
   font-size: 26px;
-
-  text-shadow: black 0 3px;
   font-weight: bold;
+
+  color: white;
+  text-shadow: black 2px 2px 4px;
   &:hover {
-    transition: 0.4s;
-    color: #00900e;
+    transition: 0.2s;
+    color: #00ff1a;
+    cursor: pointer;
   }
-  cursor: pointer;
 `;
 
 export const FAQ = styled.div`
-  font-family: 'Krona One', sans-serif;
-  text-decoration: none;
-
+  font-family: "Krona One", sans-serif;
   font-size: 26px;
+  font-weight: bold;
 
-  text-shadow: black 0 3px;
+  color: white;
+  text-shadow: black 2px 2px 4px;
   &:hover {
-    transition: 0.4s;
-    color: #00900e;
+    transition: 0.2s;
+    color: #00ff1a;
     cursor: pointer;
   }
 `;
@@ -42,21 +43,34 @@ export const FAQ = styled.div`
 //   /* margin: -4px 4px 4px 4px; */
 // `;
 
+export const StyledArticles = styled.div`
+  font-family: "Krona One", sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+
+  color: white;
+  text-shadow: black 2px 2px 4px;
+  &:hover {
+    transition: 0.2s;
+    color: #00ff1a;
+    cursor: pointer;
+  }
+`;
+
 const StyledHeader = styled.header`
   width: 100%;
-
   padding: 24px 0px;
 
   position: fixed;
 
   display: flex;
-  
+
   justify-content: space-around;
   align-items: center;
 
   z-index: 2;
 
-  background-color: #ffffff30;
+  background-color: ${(props) => props.theme.backgroundHeader};
 `;
 
 const WrapperText = styled.div`
@@ -67,18 +81,24 @@ const WrapperText = styled.div`
 `;
 
 export const Header = () => {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
   const [showList, setShowList] = useState(false);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearchValue(value);
-    setShowList(value.trim() !== '');
+    setShowList(value.trim() !== "");
+
   };
 
-  const filteredDate = date.filter((item) =>
-    item.Dog_name.toLowerCase().includes(searchValue.toLowerCase())
+  const filteredDate = dogData.filter((item) =>
+    item.text.toLowerCase().includes(searchValue.toLowerCase())
   );
+
+  const clearSearch = () => {
+    setSearchValue("");
+    setShowList(false);
+  };
 
   return (
     <StyledHeader>
@@ -92,10 +112,10 @@ export const Header = () => {
         />
         <StyledList>
           {showList &&
-            filteredDate.map((dogInfo, index) => (
+            filteredDate.map((dogData, index) => (
               <div key={index}>
-                <Link href={dogInfo.Link_name} legacyBehavior>
-                  <TextInList>{dogInfo.Dog_name}</TextInList>
+                <Link href={dogData.link} legacyBehavior>
+                  <TextInList onClick={clearSearch} >{dogData.text}</TextInList>
                 </Link>
               </div>
             ))}
@@ -107,6 +127,9 @@ export const Header = () => {
         </Link>
         <Link href="/pages/faq" legacyBehavior>
           <FAQ>FAQ</FAQ>
+        </Link>
+        <Link href="/pages/articles" legacyBehavior>
+          <StyledArticles>Articles</StyledArticles>
         </Link>
       </WrapperText>
     </StyledHeader>

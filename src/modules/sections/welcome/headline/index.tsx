@@ -3,26 +3,37 @@ import styled from "styled-components";
 
 const ContainerWrapper = styled.div`
   display: flex;
-  justify-content: center;
 `;
 
 const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: start;
-  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  width: 46%;
   height: 400px;
-  margin: 100px;
+  margin: 92px 0px;
 `;
 
 const StyledHeadline = styled.div`
   font-family: "Krona One", sans-serif;
   font-weight: bold;
-  font-size: 240px;
+  font-size: 130px;
   color: white;
-  margin-right: 10px;
-  letter-spacing: -16px;
+  letter-spacing: -8px;
+  margin-top: 20px;
+  margin-right: 6%;
   text-shadow: #00000030 -20px 0px 0px;
+`;
+
+const StyledHeadlinesecond = styled.div`
+  font-family: "Krona One", sans-serif;
+  font-size: 40px;
+  color: white;
+  margin-bottom: 20%;
+  margin-right: 6%;
+  letter-spacing: -2px;
 `;
 
 export const Headline = () => {
@@ -30,6 +41,9 @@ export const Headline = () => {
     <ContainerWrapper>
       <Container>
         <StyledHeadline>DOG SITE</StyledHeadline>
+        <StyledHeadlinesecond>
+          краткий справочник про собак
+        </StyledHeadlinesecond>
       </Container>
     </ContainerWrapper>
   );

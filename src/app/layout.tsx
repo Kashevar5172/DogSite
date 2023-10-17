@@ -4,6 +4,8 @@ import { useState } from "react";
 import { GlobalStyles, darkTheme, lightTheme } from "./styles/GlobalStyles";
 import { ThemeContext } from "./context/themeContext";
 import { ThemeProvider } from "styled-components";
+import { Header } from "@/components/header/header";
+import { ThemeIcon } from "@/components/theme";
 
 export default function RootLayout({
   children,
@@ -25,7 +27,11 @@ export default function RootLayout({
       <body>
         <ThemeContext.Provider value={{ themeMode, changeTheme }}>
           <GlobalStyles theme={theme} />
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeProvider theme={theme}>
+            <Header />
+            {children}
+            <ThemeIcon />
+          </ThemeProvider>
         </ThemeContext.Provider>
       </body>
     </html>

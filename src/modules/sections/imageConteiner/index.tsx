@@ -14,11 +14,9 @@ const ImageContainer = styled.div`
   height: 600px;
   background-color: black;
 
-  margin-bottom: 100px;
+  margin: 100px 0px 100px 0px;
   border-radius: 100px;
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
   overflow: hidden;
 `;
 
@@ -52,7 +50,7 @@ const Text = styled.div`
   color: white;
   font-family: "Krona One", sans-serif;
   position: absolute;
-  bottom: 20px; /* Регулируйте отступ снизу, чтобы разместить текст по вашему желанию */
+  bottom: 20px;
   text-align: center;
   font-size: 30px;
   width: auto;
@@ -70,15 +68,9 @@ export const ImageConteiner = () => {
     setSelectedImageIndex(index);
   };
 
-  const images = [
-    "/images/terier/Terier.png",
-    "/images/spic.jpg",
-  ];
+  const images = ["/images/dogs/terier/img.png", "/images/dogs/spic/img.jpg"];
 
-  const imageTexts = [
-    "Йоркширский терьер",
-    "Померанский шпиц",
-  ];
+  const imageTexts = ["Йоркширский терьер", "Померанский шпиц"];
 
   return (
     <WrapperImageContainer>

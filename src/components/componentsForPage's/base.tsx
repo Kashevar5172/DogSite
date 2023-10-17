@@ -15,18 +15,24 @@ interface ForDogText {
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 8%;
 `;
 
 const TableWrapper = styled.tr`
-  &:nth-child(even) {
-    background-color: #f2f2f2;
-  }
+  background-color: ${(props) => props.theme.tableBackground};
+  transition: 1s;
 `;
 
 const TableText = styled.td`
   padding: 8px;
   font-size: 18px;
-  border: 1px solid #ddd;
+  border: ${(props) => props.theme.tableBorder};
+  font-size: 26px;
+  font-family: "Krona One", sans-serif;
+  color: ${(props) => props.theme.textColor};
+  &:nth-child(even) {
+    font-size: 30px;
+  }
 `;
 
 export const DogText: React.FC<ForDogText> = ({
@@ -81,27 +87,16 @@ export const DogText: React.FC<ForDogText> = ({
 
 export const ExSvg = () => {
   return (
-    <svg fill="#FFFFFF" viewBox="0 0 50 50" width="50px" height="50px">
-      <line
-        fill="none"
-        stroke="#FFFFFF"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        x1="7"
-        y1="7"
-        x2="43"
-        y2="43"
-      />
-      <line
-        fill="none"
-        stroke="#FFFFFF"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        x1="43"
-        y1="7"
-        x2="7"
-        y2="43"
-      />
+    <svg
+      fill="#FFFFFF"
+      viewBox="0 0 50 50"
+      width="50px"
+      height="50px"
+      stroke="#FFFFFF"
+      strokeWidth="2"
+    >
+      <line x1="7" y1="7" x2="43" y2="43" />
+      <line x1="43" y1="7" x2="7" y2="43" />
     </svg>
   );
 };
@@ -143,9 +138,9 @@ export const RotateArrow = () => {
 };
 
 const BoxStyledImage = styled.div`
- max-width: 1600px;
- height: 550px;
-`
+  max-width: 1600px;
+  height: 550px;
+`;
 
 const StyledImage = styled.img`
   width: 100%;
@@ -182,7 +177,7 @@ export const SvgStyle = styled.div`
   cursor: pointer;
 `;
 
-const StyledSvgStrelkaVlevo = styled.div`
+const StyledSvgStrelka = styled.div`
   width: 50px;
   z-index: 9998;
 `;
@@ -203,20 +198,20 @@ export const DogImage: React.FC<ForDogImage> = ({ imageSrc, imageFull }) => {
   return (
     <div>
       <BoxStyledImage>
-      <StyledImage src={imageSrc} onClick={UserClick} />
+        <StyledImage src={imageSrc} onClick={UserClick} />
       </BoxStyledImage>
       {showfullImage && (
         <FullImageContainer>
-          <StyledSvgStrelkaVlevo>
+          {/* <StyledSvgStrelka>
             <Arrow />
-          </StyledSvgStrelkaVlevo>
+          </StyledSvgStrelka> */}
           <FullImage src={imageFull} />
           <SvgStyle onClick={UserClick}>
             <ExSvg />
           </SvgStyle>
-          <StyledSvgStrelkaVlevo>
+          {/* <StyledSvgStrelka>
             <RotateArrow />
-          </StyledSvgStrelkaVlevo>
+          </StyledSvgStrelka> */}
         </FullImageContainer>
       )}
     </div>
@@ -224,14 +219,17 @@ export const DogImage: React.FC<ForDogImage> = ({ imageSrc, imageFull }) => {
 };
 
 export const FAQDog = styled.div`
-  color: #000000;
+  font-family: "Krona One", sans-serif;
+  color: ${(props) => props.theme.textColor};
   font-size: 40px;
   font-weight: 500;
   margin: 1% 0% 1% 0px;
 `;
 
 export const DogName = styled.div`
-  font-size: 30px;
+  padding-top: 76px;
+  color: ${(props) => props.theme.textColor};
+  font-size: 46px;
   font-family: "Krona One", sans-serif;
   display: flex;
   height: 100px;

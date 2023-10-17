@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledSearch = styled.div`
   display: flex;
   position: relative;
+  
   width: 50%;
   height: 40px;
   background-color: #ffffff;
@@ -20,8 +21,8 @@ export const Search = styled.input`
   outline: none;
   border-radius: 100px;
   &:focus {
-    border-color: #00900e; /* Цвет рамки при фокусе */
-    box-shadow: 0 0 24px #00900ebd; /* Эффект подсветки при фокусе */
+    border-color: #00900e;
+    box-shadow: 0 0 24px #00900ebd;
   }
 `;
 
@@ -39,13 +40,16 @@ export const StyledList = styled.div`
 
 export const TextInList = styled.div`
   font-size: 24px;
+  font-weight: bold;
+  font-family: "Krona One", sans-serif;
+  
   color: black;
-  cursor: pointer;
   padding: 10px;
   border: 1px solid #00900e;
   transition: background-color 0.2s;
   &:hover {
     background-color: #ccc;
     color: #00900e;
+    cursor: pointer;
   }
 `;

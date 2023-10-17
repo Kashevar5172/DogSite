@@ -1,8 +1,8 @@
 "use client"
 import styled from "styled-components";
-import { FC, useContext } from "react";
+import { FC } from "react";
 import Link from "next/link";
-import { LogoImg } from "./image";
+import { LogoImg } from "@/components/theme/icons/logo";
 
 export const StyledLogo = styled(LogoImg)`
   height: 40px;
@@ -30,10 +30,11 @@ const WrapperLogo = styled.div`
 const StyledText = styled.span`
   font-family: "Krona One", sans-serif;
   font-weight: bold;
-  color: white;
   font-size: 26px;
   letter-spacing: -2px;
   line-height: 1.4;
+  color: white;
+  text-shadow: 2px 2px 6px black;
 `;
 
 export const Logo: FC = () => {

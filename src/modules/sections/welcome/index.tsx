@@ -1,16 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Headline } from './headline';
+import { Headline } from "./headline";
 
-///images/main/background.jpg
-
-export const StyledMain = styled.section`
-  background-image: url('images/main/background.jpg');
+export const StyledMain = styled.div`
+  background-image: url("/images/background.jpg");
   background-position: center;
   background-size: cover;
-  height: 130vh;
+  height: 140vh;
 `;
-
 
 export const Main = () => {
   return (

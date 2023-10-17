@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useRef, useState } from "react";
+import styled from "styled-components";
 
-import { Item, ItemProps } from './item';
-import { dogData } from './items';
+import { Item, ItemProps } from "./item";
+import { dogData } from "./items";
 
 const List = styled.div`
   display: flex;
@@ -11,13 +11,16 @@ const List = styled.div`
 
 export const StyledHeadline = styled.h1`
   display: flex;
+  justify-content: center;
+
   max-width: 100%;
   margin-bottom: 60px;
-  background-color: #5c5a5a;
-
   padding: 6px;
 
+  font-family: sans-serif;
   font-size: 50px;
+
+  background-color: #00000030;
   color: white;
 `;
 
@@ -28,13 +31,11 @@ export const DogsSection = () => {
   const isLoading = useRef<boolean>(false);
 
   useEffect(() => {
-    // Функция для загрузки контейнеров
     const loadMoreContainers = () => {
       if (isLoading.current) return;
 
       isLoading.current = true;
 
-      // Моделируем загрузку данных из массива данных
       const startIndex = (page - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
       const newContainers = dogData.slice(startIndex, endIndex);
@@ -56,15 +57,15 @@ export const DogsSection = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [page]);
   return (
     <>
-      <StyledHeadline>ДОГИСТАЙЛ</StyledHeadline>
+      <StyledHeadline>Вата фак</StyledHeadline>
       <List>
         {containers.map((container, index) => (
           <Item

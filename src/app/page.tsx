@@ -18,7 +18,6 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <Header />
       <Main />
       <ImageConteiner />
       <About />

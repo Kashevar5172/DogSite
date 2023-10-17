@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import Link from 'next/link';
-import styled from 'styled-components';
+import { FC } from "react";
+import Link from "next/link";
+import styled from "styled-components";
 
 const StyledImage = styled.img`
   width: 100%;
@@ -15,19 +15,28 @@ const Wrapper = styled.div`
 `;
 
 const StyledTextInBox = styled.div`
-  font-family: 'Krona One', sans-serif;
-  color: #000000;
+  font-family: "Krona One", sans-serif;
+  color: ${(props) => props.theme.textColor};
   font-size: 30px;
   margin-left: 5px;
   -webkit-text-stroke: 0.5px black;
 `;
 
 const StyledLink = styled.div`
+  font-family: "Krona One", sans-serif;
+  width: 182px;
   color: #00900e;
   font-size: 22px;
   margin-left: 5px;
-  text-shadow: #00000025 0 1px;
+  text-shadow: #00000023 0 1px;
   cursor: pointer;
+  &:hover{
+    transition: 0.2s;
+      color: ${(props) => props.theme.linkColor};
+      stroke: black;
+      stroke-width: 200px;
+      stroke-linecap: butt;
+  }
 `;
 
 const StyledImageContainer = styled.div`
@@ -38,7 +47,7 @@ const StyledImageContainer = styled.div`
 const Dog = styled.div`
   width: 400px;
   height: 400px;
-  background-color: #bdbbbb20;
+  background-color: ${(props) => props.theme.backgroundDog};
 `;
 
 export interface ItemProps {
@@ -54,10 +63,8 @@ export const Item: FC<ItemProps> = ({ text, imageSrc, link }) => {
         <StyledImageContainer>
           <StyledImage src={imageSrc} />
           <StyledTextInBox>{text} </StyledTextInBox>
-          <Link href={link || ''} legacyBehavior>
-            <div>
-              <StyledLink>Узнать больше {'➤'}</StyledLink>
-            </div>
+          <Link href={link || ""} legacyBehavior>
+              <StyledLink>Узнать больше {"➤"}</StyledLink>
           </Link>
         </StyledImageContainer>
       </Dog>
