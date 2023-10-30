@@ -11,6 +11,7 @@ const StyledSun = styled(Sun)`
   height: 80px;
   bottom: 2%;
   position: fixed;
+  cursor: pointer;
 `;
 
 const StyledMoon = styled(Moon)`
@@ -18,6 +19,7 @@ const StyledMoon = styled(Moon)`
   height: 80px;
   bottom: 2%;
   position: fixed;
+  cursor: pointer;
 `;
 
 const Wrapper = styled.div`

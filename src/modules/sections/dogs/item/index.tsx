@@ -15,7 +15,6 @@ const Wrapper = styled.div`
 `;
 
 const StyledTextInBox = styled.div`
-  font-family: "Krona One", sans-serif;
   color: ${(props) => props.theme.textColor};
   font-size: 30px;
   margin-left: 5px;
@@ -23,7 +22,7 @@ const StyledTextInBox = styled.div`
 `;
 
 const StyledLink = styled.div`
-  font-family: "Krona One", sans-serif;
+
   width: 182px;
   color: #00900e;
   font-size: 22px;

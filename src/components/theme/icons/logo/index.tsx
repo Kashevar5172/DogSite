@@ -5,8 +5,6 @@ export const LogoImg: FC = (props) => {
   return (
     <svg
       viewBox="0 0 1280.000000 1280.000000"
-      preserveAspectRatio="xMidYMid meet"
-      
       {...props}
     >
       <g

@@ -7,3 +7,4 @@ export const dogData = [
    { text: 'Собака 3', imageSrc: '/images/dog3.jpg', link: '/dog3' },
    { text: 'Собака 3', imageSrc: '/images/dog3.jpg', link: '/dog3' },
  ];
+ 

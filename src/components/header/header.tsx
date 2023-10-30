@@ -7,6 +7,7 @@ import { Logo } from "./logo";
 import { Search, StyledList, StyledSearch, TextInList } from "./search";
 import Link from "next/link";
 import { dogData } from "@/modules/sections/dogs/items";
+import Test from "./media";
 
 export const StyledTextSecond = styled.div`
   font-family: sans-serif;
@@ -22,21 +23,7 @@ export const StyledTextSecond = styled.div`
   }
 `;
 
-export const FAQ = styled.div`
-  font-family: "Krona One", sans-serif;
-  font-size: 26px;
-  font-weight: bold;
-
-  color: white;
-  text-shadow: black 2px 2px 4px;
-  &:hover {
-    transition: 0.2s;
-    color: #00ff1a;
-    cursor: pointer;
-  }
-`;
-
-// export const StyledLoupe = styled(Loupe)`
+// export const StyledLoupe = styled(Loupe)`;
 //   width: 40px;
 //   height: auto;
 //   padding: 2px;
@@ -60,7 +47,6 @@ export const StyledArticles = styled.div`
 const StyledHeader = styled.header`
   width: 100%;
   padding: 24px 0px;
-
   position: fixed;
 
   display: flex;
@@ -88,7 +74,6 @@ export const Header = () => {
     const { value } = event.target;
     setSearchValue(value);
     setShowList(value.trim() !== "");
-
   };
 
   const filteredDate = dogData.filter((item) =>
@@ -115,7 +100,7 @@ export const Header = () => {
             filteredDate.map((dogData, index) => (
               <div key={index}>
                 <Link href={dogData.link} legacyBehavior>
-                  <TextInList onClick={clearSearch} >{dogData.text}</TextInList>
+                  <TextInList onClick={clearSearch}>{dogData.text}</TextInList>
                 </Link>
               </div>
             ))}
@@ -125,12 +110,13 @@ export const Header = () => {
         <Link href="/pages/breeds" legacyBehavior>
           <StyledTextSecond>Породы</StyledTextSecond>
         </Link>
-        <Link href="/pages/faq" legacyBehavior>
-          <FAQ>FAQ</FAQ>
-        </Link>
         <Link href="/pages/articles" legacyBehavior>
           <StyledArticles>Articles</StyledArticles>
         </Link>
+        <Link href="/pages/gallery" legacyBehavior>
+          <StyledArticles>Gallery</StyledArticles>
+        </Link>
+        <Test />
       </WrapperText>
     </StyledHeader>
   );

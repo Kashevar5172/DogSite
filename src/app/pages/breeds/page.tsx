@@ -13,16 +13,19 @@ const StyledTable = styled.table`
 const StyledTr = styled.tr`
   background-color: ${(props) => props.theme.tableBackground};
   transition: 1s;
+
+  &:hover {
+    background-color: #00900e50;
+    transition: 0.3s;
+  }
 `;
-
-
 
 const TableText = styled.td`
   display: flex;
-  justify-content: center;
+  justify-content: start;
   padding: 8px;
 
-  font-size: 48px;
+  font-size: 40px;
   font-family: "Krona One", sans-serif;
 
   border: ${(props) => props.theme.tableBorder};

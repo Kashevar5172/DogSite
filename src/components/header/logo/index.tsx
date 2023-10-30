@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import styled from "styled-components";
 import { FC } from "react";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { LogoImg } from "@/components/theme/icons/logo";
 export const StyledLogo = styled(LogoImg)`
   height: 40px;
   width: 40px;
-  
+
   &:hover,
   &:focus {
     path {

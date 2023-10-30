@@ -7,6 +7,7 @@ import { DogsSection } from '@/modules/sections/dogs';
 import { ImageConteiner } from '@/modules/sections/imageConteiner';
 import { Main } from '@/modules/sections/welcome';
 import Head from 'next/head';
+import MySlider from '../modules/sections/slider/page';
 
 export default function Home() {
   return (
@@ -19,8 +20,7 @@ export default function Home() {
         />
       </Head>
       <Main />
-      <ImageConteiner />
-      <About />
+      <MySlider />
       <DogsSection />
     </div>
   );
