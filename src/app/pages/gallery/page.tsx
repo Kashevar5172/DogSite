@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 import { Item } from "./item";
-import { dogGallery } from "./items";
+import { dogData } from "@/modules/sections/dogs/items";
 
 const StyledPage = styled.div`
   padding-top: 92px;
@@ -29,7 +29,7 @@ const Gallery = () => {
     <StyledPage>
       <Tilte> Галерея </Tilte>
       <List>
-        {dogGallery.map((container, id) => (
+        {dogData.map((container, id) => (
           <Item key={id} imageSrc={container.imageSrc} />
         ))}
       </List>

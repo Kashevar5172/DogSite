@@ -31,15 +31,31 @@ export const darkTheme = {
 };
 
 export const GlobalStyles = createGlobalStyle`
+    
+    @font-face {
+      font-family: 'Krona One';
+      src: url('/fonts/krona/KronaOne.ttf');
+    }
+
+    @font-face {
+      font-family: 'Mont Bold';
+      src: url('/fonts/montserrat/Bold.ttf');
+    }
+
+    @font-face {
+      font-family: 'Mont Medium';
+      src: url('/fonts/montserrat/Medium.ttf');
+    }
+
+    @font-face {
+      font-family: 'Mont Regular';
+      src: url('/fonts/montserrat/Regular.ttf');
+    }
+
   #__next {
    position: relative;
   }
 
-  @font-face {
-    font-family: 'Krona One';
-    src: url('/fonts/KronaOne.ttf') format('truetype');
-    font-weight: normal;
-  }
   
   html, body {
   width: 100%;

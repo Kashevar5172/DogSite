@@ -7,21 +7,7 @@ import { Logo } from "./logo";
 import { Search, StyledList, StyledSearch, TextInList } from "./search";
 import Link from "next/link";
 import { dogData } from "@/modules/sections/dogs/items";
-import Test from "./media";
-
-export const StyledTextSecond = styled.div`
-  font-family: sans-serif;
-  font-size: 26px;
-  font-weight: bold;
-
-  color: white;
-  text-shadow: black 2px 2px 4px;
-  &:hover {
-    transition: 0.2s;
-    color: #00ff1a;
-    cursor: pointer;
-  }
-`;
+import Media from "./media";
 
 // export const StyledLoupe = styled(Loupe)`;
 //   width: 40px;
@@ -31,9 +17,8 @@ export const StyledTextSecond = styled.div`
 // `;
 
 export const StyledArticles = styled.div`
-  font-family: "Krona One", sans-serif;
+  font-family: "Mont Bold";
   font-size: 26px;
-  font-weight: bold;
 
   color: white;
   text-shadow: black 2px 2px 4px;
@@ -108,7 +93,7 @@ export const Header = () => {
       </StyledSearch>
       <WrapperText>
         <Link href="/pages/breeds" legacyBehavior>
-          <StyledTextSecond>Породы</StyledTextSecond>
+          <StyledArticles>Породы</StyledArticles>
         </Link>
         <Link href="/pages/articles" legacyBehavior>
           <StyledArticles>Articles</StyledArticles>
@@ -116,7 +101,7 @@ export const Header = () => {
         <Link href="/pages/gallery" legacyBehavior>
           <StyledArticles>Gallery</StyledArticles>
         </Link>
-        <Test />
+        <Media />
       </WrapperText>
     </StyledHeader>
   );

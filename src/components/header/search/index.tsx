@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledSearch = styled.div`
   display: flex;
   position: relative;
-  
+
   width: 50%;
   height: 40px;
   background-color: #ffffff;
@@ -13,6 +13,8 @@ export const StyledSearch = styled.div`
 
 export const Search = styled.input`
   background-color: #ffffff;
+  
+  font-family: "Mont Medium";
   border: 0px;
   font-size: 24px;
   width: 100%;
@@ -31,18 +33,17 @@ export const StyledList = styled.div`
   top: 100%;
   margin-left: 2%;
   width: 96%;
-  max-height: 200px; 
-  overflow-y: auto; 
+  max-height: 200px;
+  overflow-y: auto;
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1; 
+  z-index: 1;
 `;
 
 export const TextInList = styled.div`
   font-size: 24px;
-  font-weight: bold;
-  font-family: "Krona One", sans-serif;
-  
+  font-family: "Mont Medium";
+
   color: black;
   padding: 10px;
   border: 1px solid #00900e;

@@ -26,9 +26,10 @@ const TableWrapper = styled.tr`
 const TableText = styled.td`
   padding: 8px;
   font-size: 18px;
+
+  font-family: "Mont Regular";
   border: ${(props) => props.theme.tableBorder};
   font-size: 26px;
-  font-family: "Krona One", sans-serif;
   color: ${(props) => props.theme.textColor};
   &:nth-child(even) {
     font-size: 30px;
@@ -101,42 +102,6 @@ export const ExSvg = () => {
   );
 };
 
-export const Arrow = () => {
-  return (
-    <svg
-      x="0px"
-      y="0px"
-      width="auto"
-      height="auto"
-      viewBox="0 0 292.359 292.359"
-    >
-      <g>
-        <path
-          fill="white"
-          d="M222.979,5.424C219.364,1.807,215.08,0,210.132,0c-4.949,0-9.233,1.807-12.848,5.424L69.378,133.331
-		c-3.615,3.617-5.424,7.898-5.424,12.847c0,4.949,1.809,9.233,5.424,12.847l127.906,127.907c3.614,3.617,7.898,5.428,12.848,5.428
-		c4.948,0,9.232-1.811,12.847-5.428c3.617-3.614,5.427-7.898,5.427-12.847V18.271C228.405,13.322,226.596,9.042,222.979,5.424z"
-        />
-      </g>
-    </svg>
-  );
-};
-
-export const RotateArrow = () => {
-  return (
-    <svg viewBox="0 0 292.359 292.359" height="auto" width="auto">
-      <g transform="matrix(-1 0 0 -1 292.359 292.359)">
-        <path
-          fill="white"
-          d="M222.979,5.424C219.364,1.807,215.08,0,210.132,0c-4.949,0-9.233,1.807-12.848,5.424L69.378,133.331
-            c-3.615,3.617-5.424,7.898-5.424,12.847c0,4.949,1.809,9.233,5.424,12.847l127.906,127.907c3.614,3.617,7.898,5.428,12.848,5.428 
-            c4.948,0,9.232-1.811,12.847-5.428c3.617-3.614,5.427-7.898,5.427-12.847V18.271C228.405,13.322,226.596,9.042,222.979,5.424z"
-        />
-      </g>
-    </svg>
-  );
-};
-
 const BoxStyledImage = styled.div`
   max-width: 1600px;
   height: 550px;
@@ -177,11 +142,6 @@ export const SvgStyle = styled.div`
   cursor: pointer;
 `;
 
-const StyledSvgStrelka = styled.div`
-  width: 50px;
-  z-index: 9998;
-`;
-
 interface ForDogImage {
   imageSrc?: string;
   imageFull?: string;
@@ -202,16 +162,10 @@ export const DogImage: React.FC<ForDogImage> = ({ imageSrc, imageFull }) => {
       </BoxStyledImage>
       {showfullImage && (
         <FullImageContainer>
-          {/* <StyledSvgStrelka>
-            <Arrow />
-          </StyledSvgStrelka> */}
           <FullImage src={imageFull} />
           <SvgStyle onClick={UserClick}>
             <ExSvg />
           </SvgStyle>
-          {/* <StyledSvgStrelka>
-            <RotateArrow />
-          </StyledSvgStrelka> */}
         </FullImageContainer>
       )}
     </div>
@@ -219,7 +173,7 @@ export const DogImage: React.FC<ForDogImage> = ({ imageSrc, imageFull }) => {
 };
 
 export const FAQDog = styled.div`
-  font-family: "Krona One", sans-serif;
+  font-family: "Mont Medium";
   color: ${(props) => props.theme.textColor};
   font-size: 40px;
   font-weight: 500;
@@ -230,7 +184,7 @@ export const DogName = styled.div`
   padding-top: 76px;
   color: ${(props) => props.theme.textColor};
   font-size: 46px;
-  font-family: "Krona One", sans-serif;
+  font-family: "Mont Regular";
   display: flex;
   height: 100px;
   align-items: center;

@@ -13,11 +13,12 @@ export const StyledHeadline = styled.h1`
   display: flex;
   justify-content: center;
 
+
+  font-family: "Mont Bold";
+
   max-width: 100%;
   margin-bottom: 60px;
   padding: 6px;
-
-  font-family: sans-serif;
   font-size: 50px;
 
   background-color: #00000030;
@@ -76,7 +77,6 @@ export const DogsSection = () => {
           />
         ))}
         {isLoading.current}
-        {/*&& <p>Loading...</p>*/}
       </List>
     </>
   );

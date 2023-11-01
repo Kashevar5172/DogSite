@@ -6,9 +6,8 @@ import React, { FC, useState } from "react";
 import styled from "styled-components";
 
 const StyledSvg = styled.svg`
-  width: 110px;
+  width: 92px;
   height: 100px;
-
   fill: ${(props) => props.theme.textColor};
   cursor: pointer;
   circle {
@@ -26,12 +25,16 @@ const StyledSvg = styled.svg`
   }
 `;
 
-export const Media = styled.div`
-  font-family: "Krona One", sans-serif;
+export const StyledMedia = styled.div`
+  font-family: "Mont Bold";
+  font-display: swap;
   font-size: 26px;
-  font-weight: bold;
   color: white;
   text-shadow: black 2px 2px 4px;
+  &:hover {
+    transition: 0.2s;
+    color: #00ff1a;
+  }
 `;
 
 const Box = styled.div`
@@ -46,7 +49,7 @@ const Empty = styled.div`
   height: 31px;
 `;
 
-const Test: FC = () => {
+const Media: FC = () => {
   const [showList, setShowList] = useState(false);
 
   const toggleList = () => {
@@ -55,7 +58,7 @@ const Test: FC = () => {
 
   return (
     <div>
-      <Media onMouseEnter={toggleList} onMouseLeave={toggleList}>
+      <StyledMedia onMouseEnter={toggleList} onMouseLeave={toggleList}>
         MEDIA
         {showList && (
           <Box>
@@ -70,9 +73,9 @@ const Test: FC = () => {
             </StyledSvg>
           </Box>
         )}
-      </Media>
+      </StyledMedia>
     </div>
   );
 };
 
-export default Test;
+export default Media;

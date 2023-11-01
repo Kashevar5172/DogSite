@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 const StyledHeadline = styled.div`
-  font-family: "Krona One", sans-serif;
+  font-family: "Krona One";
   font-weight: bold;
   font-size: 100px;
   color: white;
@@ -28,7 +28,8 @@ const StyledHeadline = styled.div`
 `;
 
 const StyledHeadlinesecond = styled.div`
-  font-size: 40px;
+  font-family: "Mont Medium";
+  font-size: 36px;
   color: white;
   margin-bottom: 20%;
   margin-right: 6%;

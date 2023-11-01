@@ -15,6 +15,8 @@ const Wrapper = styled.div`
 `;
 
 const StyledTextInBox = styled.div`
+
+font-family: "Mont Regular";
   color: ${(props) => props.theme.textColor};
   font-size: 30px;
   margin-left: 5px;
@@ -22,19 +24,19 @@ const StyledTextInBox = styled.div`
 `;
 
 const StyledLink = styled.div`
-
-  width: 182px;
+  font-family: "Mont Medium";
+  width: 202px;
   color: #00900e;
   font-size: 22px;
   margin-left: 5px;
   text-shadow: #00000023 0 1px;
   cursor: pointer;
-  &:hover{
+  &:hover {
     transition: 0.2s;
-      color: ${(props) => props.theme.linkColor};
-      stroke: black;
-      stroke-width: 200px;
-      stroke-linecap: butt;
+    color: ${(props) => props.theme.linkColor};
+    stroke: black;
+    stroke-width: 200px;
+    stroke-linecap: butt;
   }
 `;
 
@@ -63,7 +65,7 @@ export const Item: FC<ItemProps> = ({ text, imageSrc, link }) => {
           <StyledImage src={imageSrc} />
           <StyledTextInBox>{text} </StyledTextInBox>
           <Link href={link || ""} legacyBehavior>
-              <StyledLink>Узнать больше {"➤"}</StyledLink>
+            <StyledLink>Узнать больше {"➤"}</StyledLink>
           </Link>
         </StyledImageContainer>
       </Dog>
